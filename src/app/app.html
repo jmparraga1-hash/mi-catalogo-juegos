@@ -1,0 +1,23 @@
+<div class="contenedor-principal">
+  
+  <header class="cabecera">
+    <h1>{{ titulo }}</h1>
+    
+    <div class="panel-dinamico">
+      <p *ngIf="juegoDestacado">Juego destacado actual: <strong>{{ juegoDestacado }}</strong></p>
+      <p *ngIf="!juegoDestacado">Haz clic en un juego para destacarlo.</p>
+    </div>
+  </header>
+
+  <main class="grid-catalogo">
+    
+    <div class="tarjeta-juego" *ngFor="let juego of videojuegos">
+      <h3>{{ juego.titulo }}</h3>
+      <p><strong>Género:</strong> {{ juego.genero }}</p>
+      <p><strong>Consola:</strong> {{ juego.consola }}</p>
+      
+      <button (click)="actualizarDestacado(juego.titulo)">Destacar Juego</button>
+    </div>
+
+  </main>
+</div>
